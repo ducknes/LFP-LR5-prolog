@@ -9,7 +9,6 @@ predicates
 	inputIndex(index).
 	length(list, len).
 	find(list, index, elem).
-	append(list, index, elem, list).
 	insert_after(elem, index, list, list).
 	insert_after(elem, index, list, index, list).
 	compare_update_elements(list, list).
@@ -31,13 +30,6 @@ clauses
  	find([_|T], N, R) :-
  		N1 = N - 1,
  		find(T, N1, R).
- 	
- 	append([], 1, Elem, [Elem]).
- 	append([_|T], 1, Elem, [_|T1]) :-
- 		append(T, 1, Elem, T1).
- 	append([_|T], N, E, [_|T1]) :-
- 		N1 = N - 1,
- 		append(T, N1, E, T1).
 
 	% Оболочка для вставки
 	insert_after(Element, Index, List, Result) :-
